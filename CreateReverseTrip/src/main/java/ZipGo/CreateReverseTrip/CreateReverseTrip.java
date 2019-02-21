@@ -64,7 +64,7 @@ public class CreateReverseTrip extends BasePage {
 
 	String UserName 				= "prashant.zipgouser@gmail.com";
 	String Password 				= "1234567891";
-	String FileLocation 			= "/Users/prashant/Desktop/EclipseProject/CreateReverseTrip/src/main/resources/CreateReverseTrip.properties";
+	String FileLocation 			= "./src/main/resources/CreateReverseTrip.properties";
 	String SelectURL 				= "BetaUrl";
 	String mailid 					= "prashant.zipgouser@gmail.com";
 	String mailpwd 					= "Zipgouser@321";
