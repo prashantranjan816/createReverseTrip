@@ -257,7 +257,8 @@ public class CreateReverseTrip extends BasePage {
 				+ "#RouteGroup = "+RouteGroupName);
 		// send the email
 		email.send();
-		System.out.println("Sent!!!");
+		System.out.println("Sent!!");
+		
 	}
 
 }
