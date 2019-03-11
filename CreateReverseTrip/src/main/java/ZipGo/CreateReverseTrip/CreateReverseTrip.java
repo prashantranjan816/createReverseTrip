@@ -101,6 +101,7 @@ public class CreateReverseTrip extends BasePage {
 		driver.findElement(clipchevoronright).click();
 		driver.findElement(transportation).click();
 		driver.findElement(bustrips).click();
+		String DayName;
 		// ---------------------------------------------------------------------------------------
 		
 		/*RouteGroupName = "Banashankari To Bagmane Tech Park Via BTM Layout, Koramangala 100 ft road, Indiranagar";
@@ -111,17 +112,32 @@ public class CreateReverseTrip extends BasePage {
 		
 		RouteGroupName = "bhagmane To banashankari Via via Indiranagar, Koramangla 100 ft Road, BTM Layout";
 		BusName = "prashnat";
-		DisplayCabName = "Automation>>Reverse trip>>>bhagmene to bansankri,No::";
+		DisplayCabName = "Automated ReverseTrip No::";
+
 		
 		String SHr = "1";
 		String SMnt = "1";
-		// --- use Java calendar concept---------------------------
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		
+//		------- --- use Java calendar concept---------------------------
+		
+		
+		Calender();
+		/*DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
 		cal.add(Calendar.DATE, 0);//insted of 0 we can use +-1 to indrease or decrease current date.
 		dateFinal = df.format(cal.getTime());
+		*/
+//		=====================================================================
+		
+//		---- ----- ---Use java calendar for find day---- ------- -----------------
+		 	Date todayDay = new Date();
+	        SimpleDateFormat simpleDateformat = new SimpleDateFormat("EEEE"); // the day of the week spelled out completely
+//	        SimpleDateFormat simpleDateformat = new SimpleDateFormat("EE"); // the day of the week spelled out partially
+	        DayName=simpleDateformat.format(todayDay);
+	        System.out.println(DayName);
+//===================================================================================
 
 		for (int i = 1; i <=expectedTripCount; i++) {
 			Thread.sleep(2000);
@@ -176,7 +192,7 @@ public class CreateReverseTrip extends BasePage {
 			driver.findElement(testplantrip).click();
 			driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-			driver.findElement(categoryname).sendKeys(DisplayCabName + tripno);
+			driver.findElement(categoryname).sendKeys(DisplayCabName + tripno +" for "+DayName);
 			driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
 			driver.findElement(quicksave).click();
@@ -261,4 +277,15 @@ public class CreateReverseTrip extends BasePage {
 		
 	}
 
+	
+	public void Calender() {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.DATE, 0);//insted of 0 we can use +-1 to indrease or decrease current date.
+		dateFinal = df.format(cal.getTime());
+		
+	}
+	
 }
