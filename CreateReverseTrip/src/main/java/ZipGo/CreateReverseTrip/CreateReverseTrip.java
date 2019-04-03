@@ -79,7 +79,8 @@ public class CreateReverseTrip extends BasePage {
 	int j = 0;
 	int tripno = 1;
 	int expectedTripCount=8;
-	
+	String DayName;
+
 
 	@Test(priority=1,enabled=true)
 	public void CreateTestTrip() throws IOException, InterruptedException, BiffException {
@@ -101,14 +102,7 @@ public class CreateReverseTrip extends BasePage {
 		driver.findElement(clipchevoronright).click();
 		driver.findElement(transportation).click();
 		driver.findElement(bustrips).click();
-		String DayName;
-		// ---------------------------------------------------------------------------------------
 		
-		/*RouteGroupName = "Banashankari To Bagmane Tech Park Via BTM Layout, Koramangala 100 ft road, Indiranagar";
-		BusName = "prashant07";
-		DisplayCabName = "Automation>>Daily cab trip No::";*/
-		
-//		--------For Reverse Route enable below code and disable above three line code!!!
 		
 		RouteGroupName = "bhagmane To banashankari Via via Indiranagar, Koramangla 100 ft Road, BTM Layout";
 		BusName = "prashnat";
@@ -116,28 +110,11 @@ public class CreateReverseTrip extends BasePage {
 
 		
 		String SHr = "1";
-		String SMnt = "1";
+		String SMnt = "1";	
 		
-//		------- --- use Java calendar concept---------------------------
-		
-		
-		Calender();
-		/*DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = new Date();
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(date);
-		cal.add(Calendar.DATE, 0);//insted of 0 we can use +-1 to indrease or decrease current date.
-		dateFinal = df.format(cal.getTime());
-		*/
-//		=====================================================================
-		
-//		---- ----- ---Use java calendar for find day---- ------- -----------------
-		 	Date todayDay = new Date();
-	        SimpleDateFormat simpleDateformat = new SimpleDateFormat("EEEE"); // the day of the week spelled out completely
-//	        SimpleDateFormat simpleDateformat = new SimpleDateFormat("EE"); // the day of the week spelled out partially
-	        DayName=simpleDateformat.format(todayDay);
-	        System.out.println(DayName);
-//===================================================================================
+		Calender();   	//use Java calendar concept
+		Day(); 			//Use java calendar for find day
+
 
 		for (int i = 1; i <=expectedTripCount; i++) {
 			Thread.sleep(2000);
@@ -287,5 +264,14 @@ public class CreateReverseTrip extends BasePage {
 		dateFinal = df.format(cal.getTime());
 		
 	}
+	
+	public void Day() {
+		 Date todayDay = new Date();
+	        SimpleDateFormat simpleDateformat = new SimpleDateFormat("EEEE"); // the day of the week spelled out completely
+	        DayName=simpleDateformat.format(todayDay);
+	        System.out.println(DayName);
+	}
+	
+	
 	
 }
